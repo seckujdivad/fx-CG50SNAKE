@@ -1,0 +1,6 @@
+/build/*.o
+/build/*.d
+/*.bin
+/*.g3a
+/Snake.code-workspace
+/src/.vscode/
