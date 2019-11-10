@@ -5,5 +5,5 @@ int main()
 {
     int key;
     GetKey(&key);
-    return 0;   
+    return 0;
 }

@@ -29,7 +29,7 @@ INCLUDES	:=
 # options for code and add-in generation
 #---------------------------------------------------------------------------------
 
-MKG3AFLAGS := -n basic:Snake -i uns:../unselected.bmp -i sel:../selected.bmp
+MKG3AFLAGS := -n basic:Snake -i uns:../icons/unselected.bmp -i sel:../icons/selected.bmp
 
 CFLAGS	= -Os -Wall $(MACHDEP) $(INCLUDE) -Wno-write-strings
 CXXFLAGS	=	$(CFLAGS)

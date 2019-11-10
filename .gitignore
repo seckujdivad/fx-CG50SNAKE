@@ -4,3 +4,5 @@
 /*.g3a
 /Snake.code-workspace
 /src/.vscode/
+.vs/
+Debug/
