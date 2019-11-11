@@ -2,7 +2,7 @@
 
 Segment::Segment()
 {
-	this->Initialise();
+	this->Initialise(10, COLOR_WHITE, COLOR_BLACK);
 }
 
 Segment::~Segment()
@@ -10,13 +10,12 @@ Segment::~Segment()
 
 }
 
-void Segment::Initialise()
+void Segment::Initialise(int size, color_t fill, color_t outline)
 {
-	this->m_colour_fill = COLOR_BLACK;
-	this->m_colour_outline = COLOR_RED;
+	this->SetColours(fill, outline);
 
-	this->m_size_x = 10;
-	this->m_size_y = 10;
+	this->m_size_x = size;
+	this->m_size_y = size;
 
 	this->x = 0;
 	this->y = 0;
@@ -62,13 +61,19 @@ void Segment::Draw(color_t fill, color_t outline)
 			{
 				if ((x == start_x) || (x == end_x) || (y == start_y) || (y == end_y))
 				{
-					Bdisp_SetPoint_VRAM(x, y, this->m_colour_outline);
+					Bdisp_SetPoint_VRAM(x, y, outline);
 				}
 				else
 				{
-					Bdisp_SetPoint_VRAM(x, y, this->m_colour_fill);
+					Bdisp_SetPoint_VRAM(x, y, fill);
 				}
 			}
 		}
 	}
+}
+
+void Segment::SetColours(color_t fill, color_t outline)
+{
+	this->m_colour_fill = fill;
+	this->m_colour_outline = outline;
 }

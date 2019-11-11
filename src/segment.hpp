@@ -15,9 +15,11 @@ public:
 	int y;
 
 	Segment();
-	void Initialise();
+	void Initialise(int size, color_t fill, color_t outline);
 	~Segment();
 
 	void Draw();
 	void Draw(color_t fill, color_t outline);
+
+	void SetColours(color_t fill, color_t outline);
 };

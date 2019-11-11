@@ -1,52 +1,62 @@
 #include <fxcg/display.h>
 #include <fxcg/keyboard.h>
 #include <fxcg/heap.h>
+#include "fxcg/rtc.h"
 
-#include "segment.hpp"
+#include "snake.hpp"
 
 int main()
 {
-	Segment* segment = (Segment*)sys_malloc(sizeof(Segment));
-	segment->Initialise();
-
 	int row;
 	int column;
 	unsigned short key;
+	int getkey;
+	int keypress_type;
 
-	segment->x = 50;
-	segment->y = 50;
+	int last_refresh = RTC_GetTicks() - 10000;
 
-	while (true)
+	bool run_main = true;
+
+	Snake* snake = (Snake*)sys_malloc(sizeof(Snake));
+	snake->Initialise();
+
+	while (run_main)
 	{
-		segment->Draw();
-		Bdisp_PutDisp_DD();
-
-		PrintXY(1, 1, "--Drew triangle", TEXT_MODE_NORMAL, COLOR_BLACK);
-
-		GetKeyWait_OS(&column, &row, KEYWAIT_HALTON_TIMEROFF, 1, 1, &key);
-
-		PrintXY(1, 2, "--Key pressed", TEXT_MODE_NORMAL, COLOR_BLACK);
-
-		if ((column == 0x05) && (row == 0x04))
+		if ((RTC_GetTicks() - last_refresh) > 50)
 		{
-			segment->x = segment->x + 10;
+			snake->MoveForward();
+			Bdisp_PutDisp_DD();
+			last_refresh = RTC_GetTicks();
 		}
-		else if ((column == 0x07) && (row == 0x04))
+
+		keypress_type = GetKeyWait_OS(&column, &row, KEYWAIT_HALTOFF_TIMEROFF, 1, 1, &key);
+
+		if (keypress_type == KEYREP_KEYEVENT)
 		{
-			segment->x = segment->x - 10;
-		}
-		else if ((column == 0x06) && (row == 0x03))
-		{
-			segment->y = segment->y + 10;
-		}
-		else if ((column == 0x06) && (row == 0x05))
-		{
-			segment->y = segment->y - 10;
+			if ((column == 0x05) && (row == 0x04))
+			{
+				snake->SetDirection(1);
+			}
+			else if ((column == 0x07) && (row == 0x04))
+			{
+				snake->SetDirection(3);
+			}
+			else if ((column == 0x06) && (row == 0x03))
+			{
+				snake->SetDirection(2);
+			}
+			else if ((column == 0x06) && (row == 0x05))
+			{
+				snake->SetDirection(0);
+			}
+			else if ((column == 0x04) && (row == 0x09))
+			{
+				GetKey(&getkey);
+			}
 		}
 	}
 
-	segment->~Segment();
-	sys_free(segment);
-
+	snake->~Snake();
+	sys_free(snake);
     return 0;
 }
