@@ -18,5 +18,13 @@
     <ClCompile Include="src\snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\segment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\segment.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -89,7 +89,11 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\segment.cpp" />
     <ClCompile Include="src\snake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\segment.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
