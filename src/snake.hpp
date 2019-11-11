@@ -38,4 +38,6 @@ public:
 
 	void SetDirection(int direction);
 	void MoveForward();
+
+	void GetHeadPos(int* x, int* y);
 };

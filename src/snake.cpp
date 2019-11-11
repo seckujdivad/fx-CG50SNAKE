@@ -137,3 +137,9 @@ void Snake::MoveForward()
 
 	this->m_segments[0]->Draw();
 }
+
+void Snake::GetHeadPos(int* x, int* y)
+{
+	*x = this->m_segments[0]->x;
+	*y = this->m_segments[0]->y;
+}
