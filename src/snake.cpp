@@ -148,7 +148,7 @@ bool Snake::CollidesWith(Segment* segment, bool check_all, bool check_head)
 	int check_to = 1;
 	if (check_all)
 	{
-		check_to = this->m_bunch_from - 1;
+		check_to = this->m_bunch_from;
 	}
 
 	int check_from = 1;
@@ -159,7 +159,7 @@ bool Snake::CollidesWith(Segment* segment, bool check_all, bool check_head)
 
 	for (int i = check_from; i < check_to; i++)
 	{
-		if ((this->m_segments[i]->x == segment->x) && (this->m_segments[i]->y = segment->y))
+		if ((this->m_segments[i]->x == segment->x) && (this->m_segments[i]->y == segment->y))
 		{
 			return true;
 		}

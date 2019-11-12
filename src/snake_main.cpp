@@ -57,6 +57,7 @@ int main()
 
 				PrintXY(1, 1, "--SNAKE", TEXT_MODE_NORMAL, COLOR_BLACK);
 				PrintXY(1, 2, "--Press F1 to start", TEXT_MODE_NORMAL, COLOR_BLACK);
+				PrintXY(1, 2, "--F1: start", TEXT_MODE_NORMAL, COLOR_BLACK);
 
 				Bdisp_PutDisp_DD();
 			}
@@ -75,7 +76,7 @@ int main()
 					SetRandomFoodPos(food, snake);
 				}
 
-				/*if (snake->CollidesWith(snake->GetHeadSegment(), true, false))
+				if (snake->CollidesWith(snake->GetHeadSegment(), true, false))
 				{
 					state = 2;
 
@@ -84,7 +85,7 @@ int main()
 
 					food->~Segment();
 					sys_free(food);
-				}*/
+				}
 			}
 			else if (state == 2)
 			{
