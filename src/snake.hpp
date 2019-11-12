@@ -27,6 +27,8 @@ private:
 	int m_start_x;
 	int m_start_y;
 
+	int m_bunch_from;
+
 	void ExtendSegmentsArray();
 
 public:

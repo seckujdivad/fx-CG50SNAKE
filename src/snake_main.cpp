@@ -38,7 +38,7 @@ int main()
 
 	while (run_main)
 	{
-		if ((RTC_GetTicks() - last_refresh) > 50)
+		if ((RTC_GetTicks() - last_refresh) > 20)
 		{
 			snake->MoveForward();
 			Bdisp_PutDisp_DD();

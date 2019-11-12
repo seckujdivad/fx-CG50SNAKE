@@ -40,6 +40,8 @@ void Snake::Initialise()
 	this->m_direction = 0;
 	this->m_prev_direction = -1;
 
+	this->m_bunch_from = 1;
+
 	this->NewSegment(true);
 	this->NewSegment(false);
 }
@@ -102,21 +104,16 @@ void Snake::MoveForward()
 
 	this->m_segments[this->m_segments_length - 1]->Draw(this->m_background_colour, this->m_background_colour);
 
-	bool bunch_found = false;
-	for (int i = 1; i < this->m_segments_length; i++)
+	for (int i = this->m_bunch_from - 1; i > 0; i--)
 	{
-		if ((this->m_segments[i]->x == this->m_segments[i + 1]->x) && (this->m_segments[i]->y == this->m_segments[i + 1]->y))
-		{
-			bunch_found = true;
-		}
-		else if (!bunch_found)
-		{
-			this->m_segments[i]->x = this->m_segments[i - 1]->x;
-			this->m_segments[i]->y = this->m_segments[i - 1]->y;
-		}
+		this->m_segments[i]->x = this->m_segments[i - 1]->x;
+		this->m_segments[i]->y = this->m_segments[i - 1]->y;
 	}
-	
-	this->m_segments[1]->Draw();
+
+	if (this->m_segments_length > this->m_bunch_from)
+	{
+		this->m_bunch_from++;
+	}
 
 	if (this->m_direction == 0)
 	{
@@ -134,6 +131,8 @@ void Snake::MoveForward()
 	{
 		this->m_segments[0]->x = this->m_segments[0]->x - this->m_segment_size;
 	}
+
+	this->m_segments[1]->Draw();
 
 	this->m_segments[0]->Draw();
 }
