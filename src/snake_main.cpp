@@ -56,7 +56,6 @@ int main()
 			{
 
 				PrintXY(1, 1, "--SNAKE", TEXT_MODE_NORMAL, COLOR_BLACK);
-				PrintXY(1, 2, "--Press F1 to start", TEXT_MODE_NORMAL, COLOR_BLACK);
 				PrintXY(1, 2, "--F1: start", TEXT_MODE_NORMAL, COLOR_BLACK);
 
 				Bdisp_PutDisp_DD();
@@ -90,7 +89,7 @@ int main()
 			else if (state == 2)
 			{
 				PrintXY(1, 1, "--Game Over", TEXT_MODE_NORMAL, COLOR_BLACK);
-				PrintXY(1, 2, "--Press F2 to return to the menu", TEXT_MODE_NORMAL, COLOR_BLACK);
+				PrintXY(1, 2, "--F2: menu", TEXT_MODE_NORMAL, COLOR_BLACK);
 
 				Bdisp_PutDisp_DD();
 			}
@@ -104,7 +103,7 @@ int main()
 			{
 				SetBackground(COLOR_WHITE);
 
-				PrintXY(1, 1, "--Press menu again to exit", TEXT_MODE_NORMAL, COLOR_BLACK);
+				PrintXY(1, 1, "--Menu: exit to main", TEXT_MODE_NORMAL, COLOR_BLACK);
 				state = 0;
 				
 				GetKey(&getkey);
