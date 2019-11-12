@@ -42,4 +42,8 @@ public:
 	void MoveForward();
 
 	void GetHeadPos(int* x, int* y);
+
+	bool CollidesWith(Segment* segment, bool check_all, bool check_head);
+
+	Segment* GetHeadSegment();
 };

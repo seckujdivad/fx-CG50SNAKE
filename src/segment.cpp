@@ -7,7 +7,7 @@ Segment::Segment()
 
 Segment::~Segment()
 {
-
+	this->Draw(COLOR_WHITE, COLOR_WHITE);
 }
 
 void Segment::Initialise(int size, color_t fill, color_t outline)

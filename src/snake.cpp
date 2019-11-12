@@ -142,3 +142,32 @@ void Snake::GetHeadPos(int* x, int* y)
 	*x = this->m_segments[0]->x;
 	*y = this->m_segments[0]->y;
 }
+
+bool Snake::CollidesWith(Segment* segment, bool check_all, bool check_head)
+{
+	int check_to = 1;
+	if (check_all)
+	{
+		check_to = this->m_bunch_from - 1;
+	}
+
+	int check_from = 1;
+	if (check_head)
+	{
+		check_from = 0;
+	}
+
+	for (int i = check_from; i < check_to; i++)
+	{
+		if ((this->m_segments[i]->x == segment->x) && (this->m_segments[i]->y = segment->y))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+Segment* Snake::GetHeadSegment()
+{
+	return this->m_segments[0];
+}
