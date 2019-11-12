@@ -19,6 +19,8 @@ void Segment::Initialise(int size, color_t fill, color_t outline)
 
 	this->x = 0;
 	this->y = 0;
+
+	this->m_outline_width = 2;
 }
 
 void Segment::Draw()
@@ -59,7 +61,7 @@ void Segment::Draw(color_t fill, color_t outline)
 		{
 			for (int y = start_y; y < end_y; y++)
 			{
-				if ((x == start_x) || (x == end_x) || (y == start_y) || (y == end_y))
+				if ((x < start_x + this->m_outline_width) || (x > end_x - this->m_outline_width - 1) || (y < start_y + this->m_outline_width) || (y > end_y - this->m_outline_width - 1))
 				{
 					Bdisp_SetPoint_VRAM(x, y, outline);
 				}

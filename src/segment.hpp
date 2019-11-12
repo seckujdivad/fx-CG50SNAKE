@@ -9,6 +9,8 @@ private:
 
 	int m_size_x;
 	int m_size_y;
+
+	int m_outline_width;
 	
 public:
 	int x;
