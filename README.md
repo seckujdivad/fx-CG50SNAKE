@@ -1,5 +1,5 @@
 # fx-CG50SNAKE
-Snake for the CASIO fx-CG50 graphical calculators. For fx-CG50-specific development notes (and a guide on how to compile for these calculators) go to my fx-CG50DOOM project.
+Snake for the CASIO fx-CG50 graphical calculators.
 
 ## Running it on your calculator
 
